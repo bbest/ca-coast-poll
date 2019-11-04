@@ -1,14 +1,21 @@
 # ca-coast-poll
 
-California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11
+California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11.
 
-## Binder
+- slides: [Data Science for Marine Conservation](https://docs.google.com/presentation/d/1yHQir_zgYqRIDuADHnVTsbhXLO3nEzL3OfHU3oCbUNE/edit?usp=sharing)
+- `poll.Rmd`: poll analysis
+  - [`poll.html`](./poll.html)
+- `inflammation.Rmd`: Software Carpentry lesson
+  - [`inflammation.html`](./inflammation.html)
+  - [Programming with R: Analyzing Patient Data](http://swcarpentry.github.io/r-novice-inflammation/01-starting-with-data/index.html)
+
+## Launch Rstudio using Binder
 
 Click on the following "Launch Rstudio Binder" link to launch RStudio with the necessary packages installed:
 
 [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbest/ca-coast-poll/master?urlpath=rstudio)
 
-### Setup
+### Binder Setup
 
 Here's how the necessary files were created in this repository for the "Launch Rstudio Binder" link to work:
 

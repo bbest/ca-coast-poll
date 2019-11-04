@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "California Coastal Poll"
 output:
   html_document:
     toc: true
@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 ```
 
 ## Background
+
+California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11.
 
 ### Cheat Sheets
 
@@ -30,17 +32,19 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 - [California wildfires latest: Trump in another war of words over wildfires with California Governor Gavin Newsom - CBS News](https://www.cbsnews.com/news/trump-in-another-war-of-words-over-wildfires-with-california-governor-gavin-newsom/)
 - [Opinion | Climate Change in My Backyard (2018-01-11) - The New York Times](https://www.nytimes.com/2018/01/11/opinion/california-floods-mudslides-climate.html?searchResultPosition=1)
 
-- Wide vs long
-  - What uniquely describes an observation?
 
-- Data types:
+**Wide vs long**
+
+  - What uniquely describes an observation?
+  - Relationships with joins and relational database tables.
+
+**Data types**
+
   - numeric
   - character
   - date
   - factor
   - list
-  
-- Relationships
 
 ## Import Data
 

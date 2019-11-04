@@ -1,0 +1,22 @@
+Type: Compendium
+Package: ca-coast-poll
+Title: reads, analyzes and visualizes the opinion poll data
+Version: 0.0.1
+Authors@R: 
+    person(given  = "Ben",
+           family = "Best",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: California coastal poll analysis and
+    introduction to R
+License: What license it uses
+Depends: 
+    dplyr,
+    glue,
+    knitr,
+    readr,
+    rmarkdown,
+    tidyr
+Encoding: UTF-8
+LazyData: true

@@ -9,6 +9,12 @@ California coastal poll analysis and introduction to R for Coastal and Marine Ma
   - [`inflammation.html`](./inflammation.html)
   - [Programming with R: Analyzing Patient Data](http://swcarpentry.github.io/r-novice-inflammation/01-starting-with-data/index.html)
 
+**Old:**
+
+- [calcoastpoll](http://benbestphd.com/calcoastpoll/index.html): R package
+  - [Analyze Poll Data](http://benbestphd.com/calcoastpoll/articles/analyze.html): vignette
+- [calcoastpoll-tutorial](http://benbestphd.com/calcoastpoll-tutorial/index.html): bookdown
+
 ## Launch Rstudio using Binder
 
 Click on the following "Launch Rstudio Binder" link to launch RStudio with the necessary packages installed:

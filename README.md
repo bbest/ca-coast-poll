@@ -2,8 +2,10 @@
 
 California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11.
 
+
 - slides: [Data Science for Marine Conservation](https://docs.google.com/presentation/d/1yHQir_zgYqRIDuADHnVTsbhXLO3nEzL3OfHU3oCbUNE/edit?usp=sharing)
 - `poll.Rmd`: poll analysis
+  - [MASTER DATA-Opinion Poll F2019 - Google Sheets](https://docs.google.com/spreadsheets/d/1hH68SqNsvAASFn25-X9ssJPkcGSS-SfS6n3zui9hYOQ/edit#gid=1739121823)
   - [`poll.html`](./poll.html)
 - `inflammation.Rmd`: Software Carpentry lesson
   - [`inflammation.html`](./inflammation.html)

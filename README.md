@@ -2,11 +2,15 @@
 
 California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11
 
-# Binder
+## Binder
 
-Click on the following "launch binder" link to launch RStudio with the necessary packages installed:
+Click on the following "Launch Rstudio Binder" link to launch RStudio with the necessary packages installed:
 
 [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbest/ca-coast-poll/master?urlpath=rstudio)
+
+### Setup
+
+Here's how the necessary files were created in this repository for the "Launch Rstudio Binder" link to work:
 
 ```r
 library(holepunch)

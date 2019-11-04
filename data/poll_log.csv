@@ -1,0 +1,133 @@
+question,n_values,condition,first5
+9. Avoided going to beaches?,22,value > 1,"UID:   964, 966, 967, 971, 973; 
+answer: unsure, unsure, unsure, unsure, unsure; 
+value:  25, 170, 500, 7000, 15"
+10. Coast $ this Week,1512,value > 1,"UID:   2, 3, 4, 5, 6; 
+answer: $ (raw), $ (raw), $ (raw), $ (raw), $ (raw); 
+value:  100, 2000, 1000, 1000, 2000"
+12c. Safe in 2019 Parks?,115,value > 1,"UID:   968, 970, 974, 976, 979; 
+answer: s. safe, s. safe, s. safe, s. safe, s. safe; 
+value:  4, 2, 2, 4, 2"
+13. Rank threats to coastal,3443,value > 1,"UID:   1, 4, 10, 12, 19; 
+answer: pollution, pollution, pollution, pollution, pollution; 
+value:  2, 3, 4, 2, 3"
+14. Age 1st to beach,1468,value > 1,"UID:   2, 3, 4, 5, 6; 
+answer: response, response, response, response, response; 
+value:  7, 2, 6, 3, 7"
+15. Source of news,2,value > 1,"UID:   631, 631; 
+answer: paper, mag; 
+value:  9, 9"
+18. Heard of institutions?,3,value > 1,"UID:   926, 927, 458; 
+answer: SM Bay, SM Bay, SMMC; 
+value:  11, 11, 10"
+20. Purchasing seafood,2,value > 1,"UID:   1446, 1463; 
+answer: never, never; 
+value:  10, 10"
+21. Seafood eating,56,value > 1,"UID:   962, 964, 965, 967, 969; 
+answer: daily, daily, daily, daily, daily; 
+value:  6, 3, 24, 3, 3"
+22. Seafood Oz.,639,value > 1,"UID:   4, 5, 7, 9, 10; 
+answer: Oz., Oz., Oz., Oz., Oz.; 
+value:  6, 3, 30, 9, 6"
+24. Valuation of nature,5,value > 1,"UID:   55, 55, 55, 55, 55; 
+answer: beauty, ecology, unique, economics, recreate; 
+value:  4, 2, 3, 5, 6"
+25. Endangered Sp laws,28,value > 1,"UID:   962, 963, 964, 966, 969; 
+answer: less severe, less severe, less severe, less severe, less severe; 
+value:  5, 10, 17, 36, 12"
+26. Last natural area visited,53,value > 1,"UID:   161, 162, 163, 166, 167; 
+answer: response, response, response, response, response; 
+value:  15, 16, 20, 5, 30"
+27. Driving Distance to Beach,1019,value > 1,"UID:   2, 4, 5, 6, 8; 
+answer: distance (mi), distance (mi), distance (mi), distance (mi), distance (mi); 
+value:  4, 5, 3000, 5, 5"
+28a. Visit natural areas,11,value > 1,"UID:   655, 873, 655, 873, 884; 
+answer: daily, daily, weekly, weekly, weekly; 
+value:  2, 9, 2, 9, 4"
+28b. Visit SoCal Beaches,11,value > 1,"UID:   655, 873, 655, 873, 655; 
+answer: daily, daily, weekly, monthly, few yr; 
+value:  2, 9, 2, 9, 2"
+28c. Visit Channel Islands?,5,value > 1,"UID:   873, 873, 873, 873, 873; 
+answer: daily, weekly, monthly, once yr, < once yr; 
+value:  9, 9, 9, 9, 9"
+28d. Visit National Parks,5,value > 1,"UID:   873, 873, 873, 873, 873; 
+answer: daily, weekly, monthly, once yr, < once yr; 
+value:  9, 9, 9, 9, 9"
+29. Channel Islands visited,1,value > 1,"UID:   149; 
+answer: Ana; 
+value:  9"
+31. Fishing Regulation Level,1,value > 1,"UID:   528; 
+answer: over; 
+value:  2"
+32a. Malibu rebuilt (post-Woolsey)?,2,value > 1,"UID:   528, 556; 
+answer: all, all; 
+value:  10, 10"
+35. Operated Drone,1,value > 1,"UID:   892; 
+answer: yes, many; 
+value:  10"
+40. Coastal Management after 1969 SB Oil Spill,1,value > 1,"UID:   981; 
+answer: improved; 
+value:  10"
+41. Heard about Plastic Pollution?,6,value > 1,"UID:   1124, 966, 970, 971, 976; 
+answer: food, *response, *response, *response, *response; 
+value:  2, 2, 2, 2, 2"
+42. Considered moving,12,value > 1,"UID:   962, 966, 970, 971, 974; 
+answer: inland, inland, inland, inland, inland; 
+value:  2, 2, 2, 2, 2"
+43a. Beach Nourishment,123,value > 1,"UID:   1, 8, 9, 12, 13; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43b. Homeless,237,value > 1,"UID:   4, 5, 13, 22, 23; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43c. Wildlife Crossings,295,value > 1,"UID:   3, 7, 9, 15, 22; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43d. Exiting Paris Accord,63,value > 1,"UID:   35, 85, 133, 134, 273; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43e. Cultivate Marijuana,192,value > 1,"UID:   8, 34, 37, 47, 61; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43f. Utilities Wildfire Liability,50,value > 1,"UID:   7, 102, 121, 140, 144; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43g. Reduce Nat'l Monuments,38,value > 1,"UID:   79, 298, 299, 324, 339; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43h. Plastic bag bans,390,value > 1,"UID:   3, 5, 6, 7, 9; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+43i. CI Nat'l Park estab,349,value > 1,"UID:   3, 5, 7, 8, 9; 
+answer: score, score, score, score, score; 
+value:  2, 2, 2, 2, 2"
+44c. Joint Resonse to 1969 SB Oil Spill,128,value > 1,"UID:   962, 964, 965, 966, 967; 
+answer: excellent, excellent, excellent, excellent, excellent; 
+value:  93036, 93010, 93010, 93003, 93001"
+45. Zip Code,1213,value > 1,"UID:   962, 964, 965, 966, 967; 
+answer: answerd, answerd, answerd, answerd, answerd; 
+value:  1988, 1950, 1948, 1978, 1962"
+46. Years at Zip,1002,value > 1,"UID:   1, 2, 3, 4, 5; 
+answer: ZipYrs, ZipYrs, ZipYrs, ZipYrs, ZipYrs; 
+value:  5, 70, 6, 40, 49"
+47. Occupation,59,value > 1,"UID:   161, 162, 163, 164, 165; 
+answer: Job, Job, Job, Job, Job; 
+value:  1995, 1991, 2001, 1995, 1999"
+48. Year Born,1103,value > 1,"UID:   1, 2, 3, 4, 5; 
+answer: Born, Born, Born, Born, Born; 
+value:  1990, 1934, 1988, 1968, 1969"
+49. Household Income,5,value > 1,"UID:   847, 847, 847, 847, 847; 
+answer: <30,000, $30-60,000, $60-90,000, $90,000-120,000, >150,000; 
+value:  9, 9, 9, 9, 9"
+50. Voter,1,value > 1,"UID:   847; 
+answer: no; 
+value:  9"
+51. Gender,1,value > 1,"UID:   115; 
+answer: female; 
+value:  9"
+52. Education,6,value > 1,"UID:   973, 977, 980, 992, 997; 
+answer: some college, some college, some college, some college, some college; 
+value:  3, 2, 2, 2, 2"
+53. Language,1,value > 1,"UID:   877; 
+answer: Spanish; 
+value:  2"

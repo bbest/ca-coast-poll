@@ -1,0 +1,233 @@
+---
+title: "index"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message = F, warning = F)
+```
+
+## Background
+
+### Cheat Sheets
+
+- [RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+- [R Markdown](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+- [Data Import](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+- [Data Transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+- [Data Visualization](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+### Notes
+
+**Question 7e Climate change …Thomas Fire?**
+
+- [California wildfires latest: Trump in another war of words over wildfires with California Governor Gavin Newsom - CBS News](https://www.cbsnews.com/news/trump-in-another-war-of-words-over-wildfires-with-california-governor-gavin-newsom/)
+- [Opinion | Climate Change in My Backyard (2018-01-11) - The New York Times](https://www.nytimes.com/2018/01/11/opinion/california-floods-mudslides-climate.html?searchResultPosition=1)
+
+- Wide vs long
+  - What uniquely describes an observation?
+
+- Data types:
+  - numeric
+  - character
+  - date
+  - factor
+  - list
+  
+- Relationships
+
+## Import Data
+
+```{r read}
+# libraries ----
+library(glue)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(scales)
+library(plotly)
+library(DT)
+
+# variables ----
+id         <- "1hH68SqNsvAASFn25-X9ssJPkcGSS-SfS6n3zui9hYOQ"
+gid        <- "1739121823"
+row_beg    <- 4     # first row above data with headers
+row_end    <- 1732  # last row of data before summarizing
+reload_url <- FALSE
+
+# paths ----
+url_csv  <- glue("https://docs.google.com/spreadsheets/d/{id}/export?format=csv&gid={gid}")
+all_csv  <- "data/poll_all.csv"
+log_csv  <- "data/poll_log.csv"
+
+# download google sheet ----
+if (reload_url | !file.exists(all_csv)){
+  download.file(url_csv, all_csv)
+}
+
+# read headers and data ----
+nrows   <- row_end - row_beg
+
+data    <- read_csv(
+  all_csv, skip = row_beg - 1, n_max = nrows, guess_max = nrows)
+
+headers <- read_csv(
+  all_csv, skip = 0, n_max = row_beg, 
+  col_names = F, col_types = strrep("c", ncol(data)))
+names(headers) <- names(data)
+headers <- headers %>% 
+  bind_cols(
+    tibble(row = c("question_n", "heading", "question", "answer")))
+  
+# questions with answers ---
+q_a <- headers %>%
+  gather(column, value, -row) %>%
+  mutate(icol = sapply(1:ncol(data), rep, 4) %>% as.vector()) %>% 
+  spread(row, value) %>% 
+  arrange(icol) %>%
+  fill(question_n) %>% 
+  filter(!is.na(answer)) %>%
+  mutate(
+     question_n = str_remove(question_n, "Question ")) %>% 
+  select(question_n, question, heading, answer, icol, column)
+#View(q_a)
+
+# questions ----
+q <- q_a %>% 
+  group_by(question_n) %>% 
+  summarize(
+    icol     = first(icol),
+    question = first(question),
+    heading  = first(heading),
+    answers  = paste(answer, collapse = " | ")) %>% 
+  arrange(icol) %>% 
+  select(question_n, question, heading, answers, icol)
+# View(q)
+
+# values ----
+v <- data %>% 
+  filter(str_sub(UID, 1, 8) != "Example ") %>% 
+  mutate(UID = as.integer(UID)) %>% 
+  gather(column, value, -UID)
+
+# setup list object to pass between functions ----
+poll <- list(q=q, q_a=q_a, v=v)
+
+# helper functions ----
+question_title <- function(poll, q_n){
+  q_i <- filter(poll$q, question_n == q_n)
+  glue("{q_i$question_n}. {q_i$question}")
+}
+
+plot_question <- function(poll, q_n, answers_rm = c("answered", "comment"), q_rng = c("13")){
+  # poll <- list(q=q, q_a=q_a, v=v); q_n <- "7e"; answers_rm = c("answered", "comment")
+  # q_n <- "1" # q_n <- "5" # q_n <- "9" # q_n <- "13"
+  q_i     <- filter(poll$q, question_n == q_n)
+  q_title <- question_title(poll, q_n)
+  
+  answer_levels <- q_i$answers %>% 
+    str_split(fixed(" | "), simplify = T) %>% 
+    as.character() %>% 
+    setdiff(answers_rm)
+  
+  if (length(answer_levels) == 0){
+    msg <- glue("ERR length(answer_levels) == 0: {q_title}")
+    message(msg); return(msg)
+    # browser()
+  }
+  
+  v_i <- v %>% 
+    left_join(q_a, by="column") %>% 
+    filter(question_n == q_n) %>% 
+    filter(answer %in% answer_levels) %>% 
+    select(UID, answer, value) %>% 
+    mutate(
+      value  = as.integer(value),
+      answer = factor(answer, answer_levels, ordered = T)) %>% 
+    filter(!is.na(value))
+  
+  if (any(na.omit(v_i$value > 1))){
+    
+    # log questions with values greater than 1
+    d_gt1 <- v_i %>% filter(value > 1)
+    log_gt1_tbl <- tibble(
+      question  = q_title,
+      n_values  = nrow(d_gt1),
+      condition = "value > 1",
+      first5    = glue(
+        "UID:   {paste(head(d_gt1$UID,    5), collapse=', ')}; 
+        answer: {paste(head(d_gt1$answer, 5), collapse=', ')}; 
+        value:  {paste(head(d_gt1$value,  5), collapse=', ')}"))
+    if (file.exists(log_csv)){
+      write_csv(log_gt1_tbl, log_csv, append=T)
+    } else {
+      write_csv(log_gt1_tbl, log_csv)
+    }
+      
+    p <- ggplot(v_i, aes(x = answer, y = value, fill = answer)) + 
+      geom_boxplot() + 
+      theme(legend.position = "none") +
+      coord_flip() + 
+      ggtitle(q_title) + 
+      theme(axis.title = element_blank())
+    
+  } else {
+    
+    v_i <- v_i %>% 
+      group_by(answer) %>% 
+      summarize(
+        n   = sum(value, na.rm = T)) %>% 
+      mutate(
+        pct = n / sum(n))
+    
+    p <- ggplot(v_i, aes(x = answer, y = pct, fill = answer, label = percent(pct))) + 
+      geom_col(position = 'dodge') + 
+      geom_text(size = 3) +
+      scale_y_continuous(labels = percent) +
+      theme(legend.position = "none") +
+      coord_flip() + 
+      ggtitle(q_title) + 
+      theme(axis.title = element_blank())
+  }
+  print(p)
+}
+
+# show questions ----
+datatable(q %>% select(-icol), rownames=F)
+```
+
+## Poll Answers
+
+```{r visualize, fig.width=6, results="asis"}
+# remove questions that are not easy bar charts or box plots
+q_n_rm <- c("UID", "Meta", "1")
+q_ns <- setdiff(poll$q$question_n, q_n_rm)
+
+# loop over questions
+unlink(log_csv) # clear log
+for(q_n in q_ns) { # q_n = q_ns[1]
+  cat("\n\n###",  question_title(poll, q_n), "\n")
+  plot_question(poll, q_n)
+}
+```
+
+## Log check
+
+Let's look at the log output where values > 1 were detected, which forced the graphing into a boxplot to assume an average value over a range. However where only a few values were > 1, these values might need to be just a 1 or 0 to reflect a Yes or No value to be summed. 
+
+```{r}
+read_csv(log_csv) %>% 
+  arrange(n_values) %>% 
+  datatable()
+```
+
+
+

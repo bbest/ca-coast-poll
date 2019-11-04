@@ -6,17 +6,22 @@ Authors@R:
     person(given  = "Ben",
            family = "Best",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "ben@ecoquants.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: California coastal poll analysis and
     introduction to R
 License: What license it uses
 Depends: 
     dplyr,
+    DT,
+    ggplot2,
     glue,
     knitr,
+    plotly,
     readr,
     rmarkdown,
+    scales,
+    stringr,
     tidyr
 Encoding: UTF-8
 LazyData: true

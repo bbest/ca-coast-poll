@@ -1,0 +1,87 @@
+---
+title: "index"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import Data
+
+- [Download link for Google Spreadsheets CSV export - with Multiple Sheets - Stack Overflow](https://stackoverflow.com/questions/33713084/download-link-for-google-spreadsheets-csv-export-with-multiple-sheets)
+
+You try: Based on this information, 
+
+```{r cars}
+#To download a specific sheet as a CSV file, replace {key} with the document's ID and {sheet_name} with #the name of the sheet to export:
+library(glue)
+library(readr)
+library(dplyr)
+library(tidyr)
+
+# QUESTION: set these variables to appropriate values
+# TODO: setup dummy data sheet by example
+id      <- "1hH68SqNsvAASFn25-X9ssJPkcGSS-SfS6n3zui9hYOQ"
+gid     <- "1739121823"
+row_beg <- 4     # first row above data with headers
+row_end <- 1732  # last row of data before summarizing
+
+# TODO: rows_drop
+rows_drop <- 1:11
+
+# note: as data updates, so do results when re-run, pulling from data source ea time ==  repro research
+url_csv <- glue("https://docs.google.com/spreadsheets/d/{key}/export?format=csv&gid={gid}")
+
+nrows   <- row_end - row_beg
+data    <- read_csv(
+  url_csv, skip = row_beg - 1, n_max = nrows, guess_max = nrows)
+headers <- read_csv(
+  url_csv, skip = 0, n_max = row_beg, 
+  col_names = F, col_types = strrep("c", ncol(data)))
+
+# headers_0 <- headers
+# headers <- headers_0
+
+names(headers) <- names(data)
+headers <- headers %>% 
+  #bind_rows(
+  #  setNames(names(data), names(headers))) %>% 
+  bind_cols(tibble(category = c("question_n", "heading", "question", "answer")))
+  
+
+# headers_1 <- headers
+# headers <- headers_1
+
+# headers %>% 
+#   gather(column, value, -category) %>%
+#   View()
+#   spread(category, value)
+# 
+# fill(heading, question)
+# 
+# ncol(headers)
+# 
+# duplicated(names(data))
+# 
+# hdrs <- headers %>% 
+#   gather(column, value)
+
+
+```
+
+q | q2 | q3 | a
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+

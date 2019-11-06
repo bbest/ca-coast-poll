@@ -26,8 +26,13 @@ California coastal poll analysis and introduction to R for Coastal and Marine Ma
 
 1. Launch Rstudio in your web browser by clicking on the following:
   [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbest/ca-coast-poll/master?urlpath=rstudio)
-1. In RStudio, File > New File > R Markdown...
+1. Make your first **Rmd**. In RStudio, File > New File > R Markdown... Name the file **first** and Save, which will get saved as `file.Rmd`. Click on the **Knit**.
+1. Open `inflammation.Rmd` and click cursor line by line on R code and execute by entering `Control + Enter` keys.
 
+## Further Resources
+
+1. [R for Data Science](https://r4ds.had.co.nz/): the "bible" book free online
+1. [DataCamp.com](https://www.datacamp.com/home): learn R, Python & Data Science Online with badges (some free, most paid)
 
 ## Old Resources
 

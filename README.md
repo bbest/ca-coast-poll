@@ -2,8 +2,10 @@
 
 California coastal poll analysis and introduction to R for Coastal and Marine Management class at CSUCI 2019-11.
 
+## Resources
 
 - slides: [Data Science for Marine Conservation](https://docs.google.com/presentation/d/1yHQir_zgYqRIDuADHnVTsbhXLO3nEzL3OfHU3oCbUNE/edit?usp=sharing)
+- video: [What is R Markdown?](https://vimeo.com/178485416) (1 minute)
 - `poll.Rmd`: poll analysis
   - [MASTER DATA-Opinion Poll F2019 - Google Sheets](https://docs.google.com/spreadsheets/d/1hH68SqNsvAASFn25-X9ssJPkcGSS-SfS6n3zui9hYOQ/edit#gid=1739121823)
   - [`poll.html`](./poll.html)
@@ -11,17 +13,21 @@ California coastal poll analysis and introduction to R for Coastal and Marine Ma
   - [`inflammation.html`](./inflammation.html)
   - [Programming with R: Analyzing Patient Data](http://swcarpentry.github.io/r-novice-inflammation/01-starting-with-data/index.html)
 
-**Old:**
+## Instructions
+
+1. Launch Rstudio in your web browser by clicking on the following:
+  [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbest/ca-coast-poll/master?urlpath=rstudio)
+1. In RStudio, File > New File > R Markdown...
+
+
+## Old Resources
+
+These resources were created when previously looking at this opinion poll 2019-02:
 
 - [calcoastpoll](http://benbestphd.com/calcoastpoll/index.html): R package
   - [Analyze Poll Data](http://benbestphd.com/calcoastpoll/articles/analyze.html): vignette
 - [calcoastpoll-tutorial](http://benbestphd.com/calcoastpoll-tutorial/index.html): bookdown
 
-## Launch Rstudio using Binder
-
-Click on the following "Launch Rstudio Binder" link to launch RStudio with the necessary packages installed:
-
-[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbest/ca-coast-poll/master?urlpath=rstudio)
 
 ### Binder Setup
 

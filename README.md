@@ -4,9 +4,11 @@ California coastal poll analysis and introduction to R for Coastal and Marine Ma
 
 ## Objectives 2019-11-06
 
-1. Become acquainted with  **R** programming language and **RStudio**.
+1. Become acquainted with **programming basics** and **reproducible research**.
+1. Make your own **R Markdown** (aka Rmarkdown, Rmd) document.
+1. Learn some **R basics* by working on `inflammation.Rmd`. And time permitting...
+1. Make **interactive plots** using `plotly::ggplot()`.
 1. Perform some quality control (**QC**) on the [MASTER DATA-Opinion Poll F2019 - Google Sheets](https://docs.google.com/spreadsheets/d/1hH68SqNsvAASFn25-X9ssJPkcGSS-SfS6n3zui9hYOQ/edit#gid=1739121823) by reviewing answers having responses > 1:  [ca-coast-poll/poll_log.csv at master · bbest/ca-coast-poll](https://github.com/bbest/ca-coast-poll/blob/master/data/poll_log.csv).
-1. Make your own **R Markdown** (aka Rmarkdown, Rmd) document 1. Update plots to make **interactive** using `plotly::ggplot()`.
 1. Have **fun** with data science :) ...
 
 ## Resources
